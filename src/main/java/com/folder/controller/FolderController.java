@@ -175,7 +175,7 @@ public class FolderController {
     }
 
     // Original method: getAllFileInfo
-    @RequestMapping(value = "/getAllFileInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/getAllFileInfo", method = RequestMethod.GET)
     public String getAllFileInfo(@RequestParam String patientID) throws SQLException {
         return FolderServer.getAllFileInfo(datasource.getConnection(), patientID);
     }
