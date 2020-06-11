@@ -144,8 +144,11 @@ public class FolderController {
     // Original method: deletePhoto
     @RequestMapping(value = "/deletePhoto", method = RequestMethod.POST)
     public String deletePhoto(@RequestParam String patientID, @RequestParam String time, @RequestParam String videoPath) throws SQLException {
-        FolderServer.deletePhoto(datasource.getConnection(), patientID, time);
+        return FolderServer.deletePhoto(datasource.getConnection(), patientID, time);
+    }
 
+    @RequestMapping(value = "/deleteVideo", method = RequestMethod.POST)
+    public String deleteVideo(@RequestParam String patientID, @RequestParam String time, @RequestParam String videoPath) throws SQLException {
         System.out.println(executor.getKeepAliveSeconds());
         executor.execute(new Runnable() {
             @Override
@@ -161,7 +164,6 @@ public class FolderController {
                 }
             }
         });
-
         return FolderServer.deletePhoto(datasource.getConnection(), patientID, time);
     }
 
