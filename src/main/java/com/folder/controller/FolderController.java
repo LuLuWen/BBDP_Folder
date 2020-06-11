@@ -136,7 +136,7 @@ public class FolderController {
     }
 
     // Original method: editPhoto
-    @RequestMapping(value = "/editPhoto", method = RequestMethod.POST)
+    @RequestMapping(value = "/editPhoto", method = RequestMethod.GET)
     public String editPhoto(@RequestParam String patientID, @RequestParam String time, @RequestParam String description) throws SQLException {
         return FolderServer.editPhoto(datasource.getConnection(), patientID, time, description);
     }
