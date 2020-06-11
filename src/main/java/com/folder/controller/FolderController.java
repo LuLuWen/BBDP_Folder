@@ -179,6 +179,7 @@ public class FolderController {
     }
 
     // Original method: getDoctorFileInfo
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/getDoctorFileInfo", method = RequestMethod.GET)
     public String getDoctorFileInfo(@RequestParam String patientID, @RequestParam String doctorID) throws SQLException {
         return FolderServer.getDoctorFileInfo(datasource.getConnection(), patientID, doctorID);
