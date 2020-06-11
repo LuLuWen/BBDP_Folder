@@ -142,12 +142,12 @@ public class FolderController {
     }
 
     // Original method: deletePhoto
-    @RequestMapping(value = "/deletePhoto", method = RequestMethod.POST)
+    @RequestMapping(value = "/deletePhoto", method = RequestMethod.GET)
     public String deletePhoto(@RequestParam String patientID, @RequestParam String time, @RequestParam String videoPath) throws SQLException {
         return FolderServer.deletePhoto(datasource.getConnection(), patientID, time);
     }
 
-    @RequestMapping(value = "/deleteVideo", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteVideo", method = RequestMethod.GET)
     public String deleteVideo(@RequestParam String patientID, @RequestParam String time, @RequestParam String videoPath) throws SQLException {
         System.out.println(executor.getKeepAliveSeconds());
         executor.execute(new Runnable() {
